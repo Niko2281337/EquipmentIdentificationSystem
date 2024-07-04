@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Оборудование</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<header th:insert="Elements/header :: header"></header>
+<div class="container mt-5">
+    <h1>Добавление оборудования</h1>
+<form action="/Equipment/add" method="post">
+    <input type="text" name="name" placeholder="Введите название оборудования" class="form-control"></br>
+    <input type="text" name="category" placeholder="Введите категорию оборудования" class="form-control"></br>
+    <textarea name="description" placeholder="Введите описание" class="form-control"></textarea></br>
+    <input type="text" name="line" placeholder="Введите линейку оборудования" class="form-control"></br>
+    <input type="text" name="market_price" placeholder="Введите рыночную цену" class="form-control"></br>
+    <input type="text" name="purchase_price" placeholder="Введите закупочную цену" class="form-control"></br>
+    <input type="text" name="serial_number" placeholder="Введите серийный номер" class="form-control"></br>
+    <button type="submit" class="btn btn-success">Добавить оборудование</button>
+</form>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Оборудование</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        h1{
+        text-align: center;
+        }
+        /* Стили таблицы (IKSWEB) */
+table.iksweb{text-decoration: none;border-collapse:collapse;width:100%;text-align:center;}
+table.iksweb th{font-weight:normal;font-size:14px; color:#ffffff;background-color:#0f65a3;}
+table.iksweb td{font-size:13px;color:#354251;}
+table.iksweb td,table.iksweb th{white-space:pre-wrap;padding:10px 5px;line-height:13px;vertical-align: middle;border: 1px solid #0f65a3;}
+table.iksweb tr:hover{background-color:#f9fafb}
+table.iksweb tr:hover td{color:#354251;cursor:default;}
+
+    </style>
+</head>
+<body>
+<header th:insert="Elements/header :: header"></header>
+
+<div  class="container mt-5">
+    <h1>Оборудование</h1>
+    <br>
+
+
+
+        <div class="container" th:each="el : ${Equipments}">
+            <table class="iksweb">
+                <tbody>
+                <tr>
+                    <td>Название </td>
+                    <td>Категория</td>
+                    <td>Линейка</td>
+                    <td>Рыночная цена</td>
+                    <td>Закупочная цена</td>
+                    <td>Описание</td>
+                    <td>Серийный номер</td>
+                </tr>
+                <tr>
+                    <td><p th:text="${el.Name}"></p></td>
+                    <td><p th:text="${el.Category}"></p></td>
+                    <td><p th:text="${el.Line}"></p></td>
+                    <td th:text="${el.MarketPrice}"></td>
+                    <td th:text="${el.PurchasePrice}"></td>
+                    <td> <p th:text="${el.Description}"></p></td>
+                    <td th:text="${el.SerialNumber}"></td>
+                </tr>
+                </tbody>
+            </table>
+            <a th:href="'/Equipment/edit/' + ${el.id}" class="btn btn-warning">Редактировать</a><br>
+            <form th:action="'/Equipment/delete/'+ ${el.id} " method="post">
+            <button type="submit" th:href="'/Equipment/delete/' + ${el.id}" class="btn btn-warning">Удалить</button>
+            </form>
+            <br>
+            <br>
+        </div>
+
+    </div>
+</div>
+
+
+
+</body>
+</html>

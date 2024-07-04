@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Оборудование</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<header th:insert="Elements/header :: header"></header>
+<div class="container mt-5">
+    <h1>Редактирование оборудования</h1>
+    <div th:each="el : ${equipment}">
+    <form method="post">
+        <input type="text" th:value="${el.Name}" name="name" placeholder="Введите название оборудования" class="form-control"></br>
+        <input type="text" th:value="${el.Category}" name="category" placeholder="Введите категорию оборудования" class="form-control"></br>
+        <textarea name="description" placeholder="Введите описание" class="form-control"  th:text="${el.Description}"/></br>
+        <input type="text" th:value="${el.Line}" name="line" placeholder="Введите линейку оборудования" class="form-control"></br>
+        <input type="text" th:value="${el.MarketPrice}" name="market_price" placeholder="Введите рыночную цену" class="form-control"></br>
+        <input type="text" th:value="${el.PurchasePrice}" name="purchase_price" placeholder="Введите закупочную цену" class="form-control"></br>
+        <input type="text" th:value="${el.SerialNumber}" name="serial_number" placeholder="Введите серийный номер" class="form-control"></br>
+        <button type="submit" class="btn btn-success">Обновить оборудование</button>
+    </form>
+    </div>
+</div>
+
+
+
+</body>
+</html>
